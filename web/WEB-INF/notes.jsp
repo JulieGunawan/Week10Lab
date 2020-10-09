@@ -18,7 +18,7 @@
             </p>
             <ul>
             <c:forEach items="${notes}" var="note">
-                <li><a href="notes?action=view&amp;noteId=${note.noteId}">${note.title}</a><br></li>
+                <li><a href="notes?action=view&amp;noteId=${note.noteId}">${note.title} (${note.owner.firstName})</a><br></li>
             </c:forEach>
         </ul>
         <c:if test="${selectedNote eq null}">
