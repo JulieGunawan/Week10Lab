@@ -13,6 +13,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -55,6 +57,9 @@ public class User implements Serializable {
     private String password;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner", fetch = FetchType.EAGER)
     private List<Note> noteList;
+    @JoinColumn(name = "role", referencedColumnName = "role_id")
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    private Role role;
 
     public User() {
     }
@@ -118,6 +123,14 @@ public class User implements Serializable {
 
     public void setNoteList(List<Note> noteList) {
         this.noteList = noteList;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     @Override

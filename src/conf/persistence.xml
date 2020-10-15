@@ -5,6 +5,7 @@
     <non-jta-data-source>java:/comp/env/jdbc/notesdb</non-jta-data-source>
     <class>models.Note</class>
     <class>models.User</class>
+    <class>models.Role</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
   </persistence-unit>
 </persistence>
